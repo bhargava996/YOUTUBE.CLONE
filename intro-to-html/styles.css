@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+    margin: 0;
+}
+
+.rectangular-wave {
+    display: flex;
+    gap: 20px;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.box::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background-color: #00ff00;
+    border-radius: 40%;
+    transform: translateX(-50%) translateY(100%);
+    animation: waveInsideBox 2s infinite ease-in-out;
+}
+
+.box:nth-child(1)::before {
+    animation-delay: 0.1s;
+}
+
+.box:nth-child(2)::before {
+    animation-delay: 0.2s;
+}
+
+.box:nth-child(3)::before {
+    animation-delay: 0.3s;
+}
+
+.box:nth-child(4)::before {
+    animation-delay: 0.4s;
+}
+
+.box:nth-child(5)::before {
+    animation-delay: 0.5s;
+}
+
+@keyframes waveInsideBox {
+    0%, 100% {
+        transform: translateX(-50%) translateY(100%);
+    }
+    50% {
+        transform: translateX(-50%) translateY(0%);
+    }
+}
